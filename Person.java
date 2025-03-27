@@ -3,21 +3,20 @@ public class Person
     private String name;
     private int age;
 
-    // TODO: Complete the non-default constructor
-    public Person(String iName, String iAge)
+    // Non-default constructor
+    public Person(String iName, int iAge)
     {
-
+        this.name = iName;
+        this.age = iAge;
     }
 
-    // TODO: Complete the default constructor using "this"
-    // Default values should be "John Doe", and 0
+    // Default constructor
     public Person()
     {
-
+        this("John Doe", 0);
     }
 
-
-    // TODO: Add setters and getters; some have been done for you
+    // Setters and getters
     public void setName(String iName)
     {
         name = iName;
@@ -28,10 +27,19 @@ public class Person
         return name;
     }
 
-    // TODO: Complete the toString method so that when we print
-    // out a Person object, it says "A Person named [name], age [age]"
+    public void setAge(int iAge)
+    {
+        age = iAge;
+    }
+
+    public int getAge()
+    {
+        return age;
+    }
+
+    // toString method
     public String toString()
     {
-        return "Printing a Person object";
+        return "A Person named " + name + ", age " + age;
     }
 }

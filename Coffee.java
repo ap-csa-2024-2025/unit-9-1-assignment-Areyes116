@@ -1,49 +1,37 @@
-public class Coffee
+public class SpecialtyCoffee extends Coffee
 {
-  private String size;
-  private boolean isSkinny;
-  private int shots;
-  private String type;
+    private String flavor;
 
-  public Coffee()
-  {
-    this("small", false, 1, "latte");
-  }
+    // Default constructor
+    public SpecialtyCoffee()
+    {
+        super(); // Calls the default constructor of Coffee
+        this.flavor = "vanilla";
+    }
 
-  public Coffee(String size, boolean isSkinny, int shots, String type)
-  {
-    this.size = size;
-    this.isSkinny = isSkinny;
-    this.shots = shots;
-    this.type = type;
-  }
+    // Parameterized constructor
+    public SpecialtyCoffee(String size, boolean isSkinny, int shots, String type, String flavor)
+    {
+        super(size, isSkinny, shots, type); // Calls the superclass constructor
+        this.flavor = flavor;
+    }
 
-  public String toString()
-  {
-    String s = size;
-    if (isSkinny)
-      s += " skinny";
-    return s + " " + shots + "-shot " + type;
-  }
+    // Getter method for flavor
+    public String getFlavor()
+    {
+        return flavor;
+    }
 
-  public String getSize()
-  {
-    return size;
-  }
+    // Setter method for flavor
+    public void setFlavor(String flavor)
+    {
+        this.flavor = flavor;
+    }
 
-  public int getPrice()
-  {
-    int price;
-    if (size.equals("extra large"))
-      price = 470;
-    else if (size.equals("large"))
-      price = 440;
-    else if (size.equals("medium"))
-      price = 360;
-    else
-      price = 330;
-
-    price += shots*30;
-    return price;
-  }
+    // Override toString method to include flavor
+    @Override
+    public String toString()
+    {
+        return super.toString() + " with " + flavor + " flavor";
+    }
 }
